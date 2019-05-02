@@ -1,0 +1,43 @@
+<div>
+  <h1>{{pageTitle}}</h1>
+</div>
+<!---SEARCH MOVIES--->
+<div>
+  <div>Search here:</div>
+  <input type="text" [(ngModel)]="inputValue" (click)="searchMovie(inputValue)"><button>SEARCH</button>  <!--TODO SKRIVA IN SEARCH FRÅN PRODUCTS -->
+  <div>
+    <h3>SEARCHING: {{inputValue}} </h3>
+  </div>
+  <div class="cardHolder" *ngIf="inputValue">
+  <div class="card" *ngFor="let movie of search">
+      <img [src]='movie.imageUrl' style="width:100%">
+      <h3> {{ movie.name }}</h3>
+      <p class="price">{{ movie.price | currency: "SEK" }}</p>
+      <p>{{ movie.description}}</p>
+      <p><button>Add to Cart</button></p>
+    </div>
+  </div>
+</div>
+<!--<table *ngIf="inputValue"> &lt;!&ndash;- If input search value then show table -&ndash;&gt;
+  <tr>
+    <th>Movie</th>
+    <th>Description</th>
+    <th>Price</th>
+  </tr>
+  <tr *ngFor="let movie of search">
+    <td>
+      <img [src]='movie.imageUrl'
+           [className]='screenView'  />
+    </td>
+    <td> {{ movie.name }}</td>
+    <td> {{ movie.description}}</td>
+    <td> {{ movie.price | currency: "SEK" }}
+      <button type="button">BUY</button> &lt;!&ndash;-(click)="onClick()"-&ndash;&gt;
+    </td>
+  </tr>
+</table>-->
+
+
+
+<!--<img src='https://solarsystem.nasa.gov/system/feature_items/images/131_PIA18906_800w.jpg' [title]='movie.name'>-->
+<!--*ngIf='viewImage'  [src]='movie.imageUrl'-->
