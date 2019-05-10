@@ -4,7 +4,7 @@
 <!---SEARCH MOVIES--->
 <div>
   <div>Search here:</div>
-  <input type="text" [(ngModel)]="inputValue" (click)="searchMovie(inputValue)"><button>SEARCH</button>  <!--TODO SKRIVA IN SEARCH FRÅN PRODUCTS -->
+  <input type="text" [(ngModel)]="inputValue" ><button [disabled]="!inputValue" (click)="searchMovie(inputValue)">SEARCH</button>  <!--TODO SKRIVA IN SEARCH FRÅN PRODUCTS -->
   <div>
     <h3>SEARCHING: {{inputValue}} </h3>
   </div>
@@ -14,10 +14,11 @@
       <h3> {{ movie.name }}</h3>
       <p class="price">{{ movie.price | currency: "SEK" }}</p>
       <p>{{ movie.description}}</p>
-      <p><button>Add to Cart</button></p>
-    </div>
+    <app-checkout [movieId]="movie.id"></app-checkout>
+  </div>
   </div>
 </div>
+
 <!--<table *ngIf="inputValue"> &lt;!&ndash;- If input search value then show table -&ndash;&gt;
   <tr>
     <th>Movie</th>

@@ -3,7 +3,7 @@ export interface IMovie {
  name: string;
  description: string;
  imageUrl: string;
- categoryId: string;
+ categoryId: number;
  id: number;
  price: number;
 

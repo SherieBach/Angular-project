@@ -1,15 +1,13 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-//import {ProductsComponent} from './products/products.component';
-//import {MovieDetailsComponent} from './movie-details/movie-details.component';
-//import {AppComponent} from './app.component';
+import {AppComponent} from './app.component';
+import {ProductsComponent} from './products/products.component';
+import {CheckoutComponent} from './checkout/checkout.component';
 
-const routes: Routes = [/*{
-  path: 'main', component: AppComponent,
-  children: [{
-    path: 'movies', component: ProductsComponent
-  }]},
-  {path: 'movie/:id', component: MovieDetailsComponent}*/];
+
+const routes: Routes = [{path: 'Home', component: AppComponent},
+  {path: 'Movies', component: ProductsComponent},
+  {path: 'Movies/:id', component: CheckoutComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -9,13 +9,13 @@ import {IDataservice} from '../interfaces/IDataservice';
 })
 export class MockService implements IDataservice {
   movies: IMovie[] = [
-    {id: 1, name: 'hej', price: 234, category: 'crime', description: 'hej', imageUrl: 'jo'},
-    {id: 2, name: 'hej', price: 234, category: 'crime', description: 'hej', imageUrl: 'jo'},
-    {id: 3, name: 'poop', price: 234, category: 'crime', description: 'hej', imageUrl: 'jo'}, {
+    {id: 1, name: 'hej', price: 234, categoryId: 8, description: 'hej', imageUrl: 'jo'},
+    {id: 2, name: 'hej', price: 234, categoryId: 6, description: 'hej', imageUrl: 'jo'},
+    {id: 3, name: 'poop', price: 234, categoryId: 5, description: 'hej', imageUrl: 'jo'}, {
       id: 4,
       name: 'hej',
       price: 234,
-      category: 'crime',
+      categoryId: 4,
       description: 'hej',
       imageUrl: 'jo'
     }
@@ -29,12 +29,16 @@ export class MockService implements IDataservice {
   constructor() {
   }
 
-  getMovie(id: number): Observable<IMovie> {
-    return undefined;
+  addMovieToCart(id: number): Observable<IMovie> {
+    return of();
   }
 
   search(search: string): Observable<IMovie[]> {
     return of(this.movies);
+  }
+
+  genre(categoryId: number, name: string): Observable<IMovie[]> {
+    return undefined;
   }
 }
 

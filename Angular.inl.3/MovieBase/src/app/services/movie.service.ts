@@ -12,11 +12,13 @@ import {IMovie} from '../interfaces/IMovie';
 export class MovieService implements IDataservice { // we make a http request here that the observable
   productURL = 'https://medieinstitutet-wie-products.azurewebsites.net/api/products';
   searchURL = 'https://medieinstitutet-wie-products.azurewebsites.net/api/search';
+  MovieGenre = 'https://medieinstitutet-wie-products.azurewebsites.net/api/category';
+ // endPoint = '';
 
   constructor(private http: HttpClient) {
   }
 
-  getMovie(id: number): Observable<IMovie> {
+  addMovieToCart(id: number): Observable<IMovie> {
     return this.http.get<IMovie>(this.productURL);
   }
 
@@ -36,8 +38,8 @@ export class MovieService implements IDataservice { // we make a http request he
       catchError(this.handleError<IMovie[]>('search', []))*/
   }
 
+  genre(categoryId: number, name: string): Observable<IMovie[]> {
+    return undefined;
+  }
 
-  // getMovie(){
-  //   this.id = this.getMovie().find()
-  // }
 }
