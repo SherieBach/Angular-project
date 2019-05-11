@@ -14,7 +14,7 @@
       <h3> {{ movie.name }}</h3>
       <p class="price">{{ movie.price | currency: "SEK" }}</p>
       <p>{{ movie.description}}</p>
-    <app-add-to-cart [movieId]="movie.id"></app-add-to-cart>
+    <app-add-to-cart [addedMovie]="movie"></app-add-to-cart>
   </div>
   </div>
 </div>
@@ -25,14 +25,14 @@
     <th>Description</th>
     <th>Price</th>
   </tr>
-  <tr *ngFor="let movie of search">
+  <tr *ngFor="let addedMovie of search">
     <td>
-      <img [src]='movie.imageUrl'
+      <img [src]='addedMovie.imageUrl'
            [className]='screenView'  />
     </td>
-    <td> {{ movie.name }}</td>
-    <td> {{ movie.description}}</td>
-    <td> {{ movie.price | currency: "SEK" }}
+    <td> {{ addedMovie.name }}</td>
+    <td> {{ addedMovie.description}}</td>
+    <td> {{ addedMovie.price | currency: "SEK" }}
       <button type="button">BUY</button> &lt;!&ndash;-(click)="onClick()"-&ndash;&gt;
     </td>
   </tr>
@@ -40,5 +40,5 @@
 
 
 
-<!--<img src='https://solarsystem.nasa.gov/system/feature_items/images/131_PIA18906_800w.jpg' [title]='movie.name'>-->
-<!--*ngIf='viewImage'  [src]='movie.imageUrl'-->
+<!--<img src='https://solarsystem.nasa.gov/system/feature_items/images/131_PIA18906_800w.jpg' [title]='addedMovie.name'>-->
+<!--*ngIf='viewImage'  [src]='addedMovie.imageUrl'-->

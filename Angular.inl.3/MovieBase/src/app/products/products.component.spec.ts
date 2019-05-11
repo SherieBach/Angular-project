@@ -3,6 +3,7 @@ import {ProductsComponent} from './products.component';
 import {MovieService} from '../services/movie.service';
 import {MockService} from '../services/mock.service';
 import {FormsModule} from '@angular/forms';
+import {AddToCartComponent} from '../add-to-cart/add-to-cart.component';
 
 
 describe('ProductsComponent', () => {
@@ -11,7 +12,7 @@ describe('ProductsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ProductsComponent],
+      declarations: [ProductsComponent, AddToCartComponent],
       imports: [FormsModule]
     })
       .overrideComponent(ProductsComponent, {set: {providers: [{provide: MovieService, useClass: MockService}]}})
@@ -32,13 +33,14 @@ describe('ProductsComponent', () => {
     expect(component.search.length).toBe(4);
   });
   /*
-    it('should add and get id', () => {
-      component.addMovieToCart(1); // id from input dec
-      expect(component.addMovieToCart).toBeTruthy();
-    });
+     it('should add and get id', () => {
+       component.addMovieToCart(1); // id from input dec
+       expect(component.addMovieToCart).toBeTruthy();
+     });
 
-   it('should add id to cart', () => {
 
-    });*/
+    it('should add id to cart', () => {
+
+     });*/
 
 });

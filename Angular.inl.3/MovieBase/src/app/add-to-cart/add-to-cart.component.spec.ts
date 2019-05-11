@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddToCartComponent } from './add-to-cart.component';
+import { HttpClientModule} from '@angular/common/http';
 
 describe('AddToCartComponent', () => {
   let component: AddToCartComponent;
@@ -8,7 +9,7 @@ describe('AddToCartComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddToCartComponent ]
+      declarations: [ AddToCartComponent ], imports: [HttpClientModule]
     })
     .compileComponents();
   }));
@@ -19,7 +20,7 @@ describe('AddToCartComponent', () => {
     fixture.detectChanges();
   });
 
-/*  it('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
-  });*/
+  });
 });

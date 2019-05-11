@@ -10,7 +10,7 @@ import {MovieService} from '../services/movie.service';
 })
 export class ProductsComponent implements OnInit {
   pageTitle = 'Shitty movies';
-  inputValue;
+  inputValue = 'the';
   screenView = true;
   movie: IMovie;
   search: IMovie[];
@@ -27,18 +27,19 @@ export class ProductsComponent implements OnInit {
       this.search = data;
     });
   }
-  addMovieToCart(id: number) {
-     this.service.addMovieToCart(id).subscribe(movie => {
-      this.movie = movie;
-     });
-   }
-
-/*  getAll() {
-    this.service.getAll().subscribe((data) => {
-      this.movie = data;
-    });
-  }*/
 }
-/*  this.service.addMovieToCart(1).subscribe((data) => {  // listens after what we want to do with the data
-     this.movie = data;
-   });*/
+
+/*
+addMovieToCart() {
+   this.service.getMovie(id).subscribe(movie => {});
+ }
+
+getAll() {
+  this.service.getAll().subscribe((data) => {
+    this.addedMovie = data;
+  });
+}
+}
+/*  this.service.getMovie(1).subscribe((data) => {  // listens after what we want to do with the data
+   this.addedMovie = data;
+ });*/

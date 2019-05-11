@@ -1,5 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {MovieService} from '../services/movie.service';
+import {IMovie} from '../interfaces/IMovie';
 
 @Component({
   selector: 'app-add-to-cart',
@@ -10,21 +11,22 @@ export class AddToCartComponent implements OnInit {
   constructor(/*private route: ActivatedRoute,*/
               private movieService: MovieService) {
   }
-  @Input() movieId: number;
-  @Output() add: EventEmitter<number> = new EventEmitter();
+
+  @Input() addedMovie: IMovie;
 
   ngOnInit() {
     /*  this.route.params.subscribe(params => {
         id = +params[id]; });
-      console.log(this.addMovieToCart(id));*/
+      console.log(this.getMovie(id));*/
   }
 
-  addMovie() {  // when clicked it adds and emits to movieId and button will pass the value=>movieId in to movie.id from IMovie
-   this.add.emit(this.movieId);
-   console.log('emitted ' + this.movieId);
+  addToCart() {
+    const maybeMovies = JSON.parse(localStorage.getItem('movies'));
+    const movies: [IMovie] = maybeMovies ? maybeMovies : [] ;
+    movies.push(this.addedMovie);
+    localStorage.setItem('movies', JSON.stringify(movies));
   }
 }
-
 
 
 // addToCart() {

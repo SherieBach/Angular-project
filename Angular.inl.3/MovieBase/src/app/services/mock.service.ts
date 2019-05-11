@@ -29,7 +29,7 @@ export class MockService implements IDataservice {
   constructor() {
   }
 
-  addMovieToCart(id: number): Observable<IMovie> {
+  getMovie(id: number): Observable<IMovie> {
     return of();
   }
 

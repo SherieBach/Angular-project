@@ -18,13 +18,12 @@ export class MovieService implements IDataservice { // we make a http request he
   constructor(private http: HttpClient) {
   }
 
-  addMovieToCart(id: number): Observable<IMovie> {
-    return this.http.get<IMovie>(this.productURL);
+  getMovie(id: number): Observable<IMovie> {
+    return this.http.get<IMovie>(`${this.productURL}/${id}`);
   }
 
   getAll(): Observable<IMovie[]> {
     return this.http.get<IMovie[]>(this.productURL);
-
   }
 
   search(search: string): Observable<IMovie[]> {
