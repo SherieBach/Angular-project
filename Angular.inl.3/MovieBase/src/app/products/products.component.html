@@ -14,7 +14,7 @@
       <h3> {{ movie.name }}</h3>
       <p class="price">{{ movie.price | currency: "SEK" }}</p>
       <p>{{ movie.description}}</p>
-    <app-checkout [movieId]="movie.id"></app-checkout>
+    <app-add-to-cart [movieId]="movie.id"></app-add-to-cart>
   </div>
   </div>
 </div>

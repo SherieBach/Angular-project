@@ -31,12 +31,14 @@ describe('ProductsComponent', () => {
     component.searchMovie('poop'); // to be poop value .
     expect(component.search.length).toBe(4);
   });
+  /*
+    it('should add and get id', () => {
+      component.addMovieToCart(1); // id from input dec
+      expect(component.addMovieToCart).toBeTruthy();
+    });
 
+   it('should add id to cart', () => {
 
-  /*it('should react to click function', () => {
-    expect(component.tag)
+    });*/
 
-
-  });
-*/
 });

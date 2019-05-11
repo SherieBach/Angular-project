@@ -13,11 +13,7 @@ export class ProductsComponent implements OnInit {
   inputValue;
   screenView = true;
   movie: IMovie;
-
-  // movies: IMovie[];
   search: IMovie[];
-  // movieTitle: string;
-  // errorMessage = '';
 
   constructor(private service: MovieService) {
   } // hämtar data från MovieService
@@ -32,8 +28,8 @@ export class ProductsComponent implements OnInit {
     });
   }
   addMovieToCart(id: number) {
-     this.movieService.addMovieToCart(id).subscribe(movie => {
-       console.log(movie[id]);
+     this.service.addMovieToCart(id).subscribe(movie => {
+      this.movie = movie;
      });
    }
 

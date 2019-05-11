@@ -7,6 +7,7 @@ import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { ReactiveFormsModule} from '@angular/forms';
 import { ProductsComponent } from './products/products.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
 
 
 // import { NotfoundComponent } from './notfound/notfound.component';
@@ -17,7 +18,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     // NotfoundComponent,
     AppComponent,
     ProductsComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    AddToCartComponent
   ],
   imports: [
     BrowserModule,
