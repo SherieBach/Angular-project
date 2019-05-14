@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {MovieService} from '../services/movie.service';
 import {IMovie} from '../interfaces/IMovie';
 
@@ -21,14 +21,17 @@ export class AddToCartComponent implements OnInit {
   }
 
   addToCart() {
-    const maybeMovies = JSON.parse(localStorage.getItem('movies'));
-    const movies: [IMovie] = maybeMovies ? maybeMovies : [] ;
+    const movies: IMovie[] = this.getCartItems() ? this.getCartItems() : [];
     movies.push(this.addedMovie);
     localStorage.setItem('movies', JSON.stringify(movies));
   }
+
+  getCartItems(): IMovie[] {
+    const cartItems: IMovie[] = JSON.parse(localStorage.getItem('movies'));
+    return cartItems ? cartItems : [];
+  }
+
+  /*deleteFromCart(index) {
+
+  }*/
 }
-
-
-// addToCart() {
-// this.add.emit(movieTitle.id);
-// }
