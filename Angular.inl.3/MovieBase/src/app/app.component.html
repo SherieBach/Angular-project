@@ -1,13 +1,14 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div class="navContainer">
+  <nav>
+    <a routerLink="/Cart" routerLinkActive="active"><i class="fab fa-opencart fa-4x"></i></a>
+    <a routerLink="/Shop" routerLinkActive="active">Shop</a>
+    <a routerLink=".." routerLinkActive="active">Home</a>
+  </nav>
+<div class="homeContainer" style="text-align:center">
   <h1>
-    Welcome to {{ title }}!
+    {{ title }}!
   </h1>
 </div>
-<div>
-  <table>
-<app-products></app-products>
-    <app-add-to-cart></app-add-to-cart>
-  </table>
 </div>
-
+<router-outlet></router-outlet>

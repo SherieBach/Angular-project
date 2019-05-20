@@ -1,9 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-body {
-  background-image: url("~img/fancycrave-440143-unsplash.jpg");
-  background-repeat: repeat;
-  background-size: 500px;
-  color: ghostwhite;
-  font-family: 'Lora', serif;
 
+body{ /* IMAGE FOR ENTIRE BACKGROUND */
+  background-image: url("~img/kilyan-sockalingum-478724-unsplash.jpg");
+  background-repeat: repeat;
+  background-size: 100%;
 }

@@ -13,25 +13,28 @@ export class AddToCartComponent implements OnInit {
   }
 
   @Input() addedMovie: IMovie;
-
+  items = '';
   ngOnInit() {
-    /*  this.route.params.subscribe(params => {
-        id = +params[id]; });
-      console.log(this.getMovie(id));*/
   }
 
   addToCart() {
     const movies: IMovie[] = this.getCartItems() ? this.getCartItems() : [];
     movies.push(this.addedMovie);
     localStorage.setItem('movies', JSON.stringify(movies));
+    this.items = JSON.stringify(this.addedMovie);
+    console.log('Here' + this.items);
   }
-
   getCartItems(): IMovie[] {
     const cartItems: IMovie[] = JSON.parse(localStorage.getItem('movies'));
     return cartItems ? cartItems : [];
   }
 
-  /*deleteFromCart(index) {
+  deleteFromCart(index) {
+   const remainedItems = this.getCartItems().splice(index, 1);
+   localStorage.setItem('movies', JSON.stringify(remainedItems));
+ }
 
-  }*/
+  /*  removeAllItems() {
+        localStorage.clear();
+    }*/
 }

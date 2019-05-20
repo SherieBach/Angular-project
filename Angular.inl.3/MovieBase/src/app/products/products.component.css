@@ -1,24 +1,3 @@
-table {
-  display: flex;
-  width: 100%;
-  border: 1px solid lightgray;
-  border-collapse: collapse;
-  padding: 50px;
-
-}
-
-th, td {
-  justify-items: center;
-  padding: 50px;
-  border: 1px solid lightgray;
-  border-collapse: collapse;
-
-}
-
-img {
-  width: 100px;
-
-}
 .cardHolder {
   display: flex;
   flex-direction: row;
@@ -31,6 +10,26 @@ img {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   max-width: 250px;
   color:gray;
-background-color: white;
+background-color: transparent;
   padding: 5px;
+}
+
+.searchButton {
+  color: white;
+}
+h3, h2, p {
+  font-family: 'Lora', serif;
+  color: ghostwhite;
+  position: relative;
+  text-space: 1;
+
+}
+span {
+  font-family: 'Lora', serif;
+  color: ghostwhite;
+  position: relative;
+  text-transform: uppercase;
+  text-space: 1;
+  margin:2%;
+
 }

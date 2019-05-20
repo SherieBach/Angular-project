@@ -10,13 +10,11 @@ import {IMovie} from '../interfaces/IMovie';
   providedIn: 'root'
 })
 export class MovieService implements IDataservice { // we make a http request here that the observable
+  constructor(private http: HttpClient) {
+  }
   productURL = 'https://medieinstitutet-wie-products.azurewebsites.net/api/products';
   searchURL = 'https://medieinstitutet-wie-products.azurewebsites.net/api/search';
   MovieGenre = 'https://medieinstitutet-wie-products.azurewebsites.net/api/category';
- // endPoint = '';
-
-  constructor(private http: HttpClient) {
-  }
 
   getMovie(id: number): Observable<IMovie> {
     return this.http.get<IMovie>(`${this.productURL}/${id}`);
@@ -24,6 +22,7 @@ export class MovieService implements IDataservice { // we make a http request he
 
   getAll(): Observable<IMovie[]> {
     return this.http.get<IMovie[]>(this.productURL);
+
   }
 
   search(search: string): Observable<IMovie[]> {

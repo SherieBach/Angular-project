@@ -3,6 +3,7 @@ import {Injectable} from '@angular/core';
 import {IMovie} from '../interfaces/IMovie';
 import {Observable, of} from 'rxjs';
 import {IDataservice} from '../interfaces/IDataservice';
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -40,5 +41,6 @@ export class MockService implements IDataservice {
   genre(categoryId: number, name: string): Observable<IMovie[]> {
     return undefined;
   }
+
 }
 

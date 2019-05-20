@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductsComponent } from './products/products.component';
 import {FormsModule} from '@angular/forms';
 import {AddToCartComponent} from './add-to-cart/add-to-cart.component';
-import {CheckoutComponent} from './checkout/checkout.component';
+import {CartComponent} from './cart/cart.component';
 
 
 describe('AppComponent', () => {
@@ -18,7 +18,7 @@ describe('AppComponent', () => {
         AppComponent,
         ProductsComponent,
         AddToCartComponent,
-        CheckoutComponent
+        CartComponent
       ],
     }).compileComponents();
   }));
