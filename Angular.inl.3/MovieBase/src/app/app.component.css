@@ -1,14 +1,21 @@
-h1 {
+body {
+  margin: 0;
   font-family: 'Lora', serif;
+
+}
+h1 {
+  font-size: 5em;
   padding: 15px;
-  color:ghostwhite;
+  color: ghostwhite;
   text-transform: uppercase;
   text-space: 1;
   border: solid 2px transparent;
+  margin-top: 0;
+  margin-bottom: 0.5em;
 }
 
-.fa-opencart{
-  color:white;
+.fa-opencart {
+  color: white;
   text-decoration-line: none;
 
 }
@@ -17,5 +24,49 @@ a {
   color: white;
   text-decoration-line: none;
   text-transform: uppercase;
+}
+
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("~img/kilyan-sockalingum-478724-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  position: relative;
+
+}
+.hero .buttonEnter {
+  display: block;
+  width: 200px;
+  padding: 1em;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 3px solid black;
+  border-radius: 20px;
+  text-decoration: none;
+  background-color: rgba(145, 142, 219, 0.8);
+  color: black;
+  font-size: 1.5em;
+
+}
+
+#magnifying-glass {
+  font-size: 10em;
+  display: inline-block;
+  width: 1em;
+  box-sizing: content-box;
+  height: 1em;
+  border: 0.2em solid rgba(145, 142, 219, 0.8);
+  position: absolute;
+  border-radius: 1.35em;
+  top: 0.2em;
+  left: 0.2em;
 }
 

@@ -13,4 +13,3 @@ export class AppComponent {
   title = 'AirFlick';
 
 }
-// app.component.ts

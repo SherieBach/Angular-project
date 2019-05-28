@@ -5,6 +5,8 @@ import { ProductsComponent } from './products/products.component';
 import {FormsModule} from '@angular/forms';
 import {AddToCartComponent} from './add-to-cart/add-to-cart.component';
 import {CartComponent} from './cart/cart.component';
+import { RouterTestingModule } from '@angular/router/testing';
+
 
 
 describe('AppComponent', () => {
@@ -12,7 +14,8 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         [HttpClientModule],
-        [FormsModule]
+        [FormsModule],
+        [RouterTestingModule]
       ],
       declarations: [
         AppComponent,
