@@ -3,12 +3,14 @@ import {Injectable} from '@angular/core';
 import {IMovie} from '../interfaces/IMovie';
 import {Observable, of} from 'rxjs';
 import {IDataservice} from '../interfaces/IDataservice';
-import {HttpClient} from "@angular/common/http";
+import {IOrderItem} from '../interfaces/IOrderItem';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MockService implements IDataservice {
+  constructor() {
+  }
   movies: IMovie[] = [
     {id: 1, name: 'hej', price: 234, categoryId: 8, description: 'hej', imageUrl: 'jo'},
     {id: 2, name: 'hej', price: 234, categoryId: 6, description: 'hej', imageUrl: 'jo'},
@@ -21,13 +23,13 @@ export class MockService implements IDataservice {
       imageUrl: 'jo'
     }
   ];
+  postOrder(orderRows: IOrderItem[]) {
+    return of();
+  }
 
 
   getAll(): Observable<IMovie[]> {
     return of(this.movies);
-  }
-
-  constructor() {
   }
 
   getMovie(id: number): Observable<IMovie> {

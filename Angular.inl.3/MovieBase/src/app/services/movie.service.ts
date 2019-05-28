@@ -3,6 +3,7 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {IDataservice} from '../interfaces/IDataservice';
 import {IMovie} from '../interfaces/IMovie';
+import {IOrderItem} from '../interfaces/IOrderItem';
 
 // import {catchError} from 'rxjs/operators';
 
@@ -12,9 +13,10 @@ import {IMovie} from '../interfaces/IMovie';
 export class MovieService implements IDataservice { // we make a http request here that the observable
   constructor(private http: HttpClient) {
   }
+
   productURL = 'https://medieinstitutet-wie-products.azurewebsites.net/api/products';
   searchURL = 'https://medieinstitutet-wie-products.azurewebsites.net/api/search';
-  MovieGenre = 'https://medieinstitutet-wie-products.azurewebsites.net/api/category';
+  ordersURL = 'https://medieinstitutet-wie-products.azurewebsites.net/api/orders';
 
   getMovie(id: number): Observable<IMovie> {
     return this.http.get<IMovie>(`${this.productURL}/${id}`);
@@ -22,7 +24,6 @@ export class MovieService implements IDataservice { // we make a http request he
 
   getAll(): Observable<IMovie[]> {
     return this.http.get<IMovie[]>(this.productURL);
-
   }
 
   search(search: string): Observable<IMovie[]> {
@@ -38,6 +39,12 @@ export class MovieService implements IDataservice { // we make a http request he
 
   genre(categoryId: number, name: string): Observable<IMovie[]> {
     return undefined;
+  }
+
+  postOrder(order: IOrderItem[]) {
+    console.log('POST');
+    const params = { params : new HttpParams().set('companyId', '19') };
+    return this.http.post(this.ordersURL, order, params).subscribe(res => console.log(res));
   }
 
 }
