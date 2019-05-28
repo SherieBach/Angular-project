@@ -1,0 +1,16 @@
+h1, th {
+  color: white;
+}
+
+.item {
+  padding: 20px 30px;
+  height: 120px;
+  display: flex;
+}
+img {
+  width: 100px;
+  height: auto;
+}
+span, p {
+  color:white;
+}

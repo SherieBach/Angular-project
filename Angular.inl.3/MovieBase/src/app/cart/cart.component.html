@@ -1,0 +1,29 @@
+<h1>ShopCart</h1>
+<div class="cartWrapper">
+  <table id="cartTable">
+    <thead>
+    <tr>
+      <th class="first">Photo</th>
+      <th class="second"></th>
+      <th class="third"></th>
+      <th class="fourth"></th>
+      <th class="fifth"></th>
+    </tr>
+    </thead>
+  </table>
+  <div class="card">
+
+    <h3></h3>
+    <p class="price"></p>
+  </div>
+</div>
+
+<div class="shopCartContainer" *ngFor="let movie of cartService.getCartItems()">
+  <div>
+    <img [src]='movie.imageUrl'/>
+  </div>
+  <span>{{movie.name}}</span>
+  <div class="total-price"><p>{{movie.price | currency: "SEK "}}</p></div>
+  <button (click)="cartService.deleteFromCart(movie.id)"><i class="fas fa-times fa-2x"></i></button>
+</div>
+<span>Amount: {{totalAmount() | currency: "SEK " }}</span>
