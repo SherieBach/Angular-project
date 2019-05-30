@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {IMovie} from '../interfaces/IMovie';
 import {MovieService} from '../services/movie.service';
-import {CartService} from '../services/cart.service';
-
 
 @Component({
   selector: 'app-products',
@@ -15,7 +13,7 @@ export class ProductsComponent implements OnInit {
   movie: IMovie;
   search: IMovie[];
 
-  constructor(private service: MovieService, private cartService: CartService) {
+  constructor(private service: MovieService) {
   }
 
   ngOnInit(): void {
