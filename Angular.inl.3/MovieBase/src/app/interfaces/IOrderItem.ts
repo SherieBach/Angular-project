@@ -1,5 +1,5 @@
 
 export interface IOrderItem {
-  productId: number;
-  amount: number;
+  ProductId: number;
+  Amount: number;
 }
