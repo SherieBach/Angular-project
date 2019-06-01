@@ -3,7 +3,6 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsComponent } from './products/products.component';
 import {FormsModule} from '@angular/forms';
-import {AddToCartComponent} from './add-to-cart/add-to-cart.component';
 import {CartComponent} from './cart/cart.component';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -20,7 +19,6 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         ProductsComponent,
-        AddToCartComponent,
         CartComponent
       ],
     }).compileComponents();

@@ -3,8 +3,6 @@ import {ProductsComponent} from './products.component';
 import {MovieService} from '../services/movie.service';
 import {MockService} from '../services/mock.service';
 import {FormsModule} from '@angular/forms';
-import {AddToCartComponent} from '../add-to-cart/add-to-cart.component';
-
 
 describe('ProductsComponent', () => {
   let component: ProductsComponent;
@@ -12,10 +10,18 @@ describe('ProductsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ProductsComponent, AddToCartComponent],
+      declarations: [ProductsComponent],
       imports: [FormsModule]
     })
-      .overrideComponent(ProductsComponent, {set: {providers: [{provide: MovieService, useClass: MockService}]}})
+      .overrideComponent(ProductsComponent, {
+        set:
+          {
+            providers: [{
+              provide: MovieService,
+              useClass: MockService
+            }]
+          }
+      })
       .compileComponents();
   }));
 
@@ -29,7 +35,7 @@ describe('ProductsComponent', () => {
   });
 
   it('should show all movies from the search function parameter', () => {
-    component.searchMovie('poop'); // to be poop value .
-    expect(component.search.length).toBe(4);
+    component.searchMovie('not used search value');
+    expect(component.search.length).toBe(4); // from mockservice
   });
 });
