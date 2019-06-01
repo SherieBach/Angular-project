@@ -26,4 +26,5 @@
   <div class="total-price"><p>{{movie.price | currency: "SEK "}}</p></div>
   <button (click)="cartService.deleteFromCart(movie.id)"><i class="fas fa-times fa-2x"></i></button>
 </div>
-<span>Amount: {{totalAmount() | currency: "SEK " }}</span>
+<span>Amount: {{totalPrice() | currency: "SEK " }}</span>
+<button (click)="sendOrder()">SHIP MY ORDER</button>
