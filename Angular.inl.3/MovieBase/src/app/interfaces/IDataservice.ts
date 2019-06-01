@@ -7,5 +7,5 @@ export interface IDataservice {
   getAll(): Observable<IMovie[]>; // Function for all products
   search(search: string): Observable<IMovie[]>; // Function for searching products
   genre(categoryId: number, name: string): Observable<IMovie[]>; // Functions for getting categories.
-  postOrder(orderRows: IOrderItem[]);
+  postOrder(orderRows: IOrderItem[], totalPrice: number, paymentMethod: string, companyId: number);
 }
