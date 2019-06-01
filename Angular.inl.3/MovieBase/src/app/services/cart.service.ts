@@ -28,8 +28,7 @@ export class CartService {
     localStorage.setItem('movies', JSON.stringify(remainedItems));
   }
 
-  addOrder() {
-    const orderItems: IMovie[] = JSON.parse(localStorage.getItem('movies'));
+  clearCart() {
+   localStorage.clear();
   }
-
 }
