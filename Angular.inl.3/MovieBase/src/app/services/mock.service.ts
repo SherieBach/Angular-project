@@ -25,7 +25,7 @@ export class MockService implements IDataservice {
   ];
 
 
-  postOrder(orderRows: IOrderItem[]) {
+  postOrder(orderRows: IOrderItem[], totalPrice: number, paymentMethod: string, companyId: number) {
     return of();
   }
 

@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import {HttpClient, HttpParams, HttpResponse} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {IDataservice} from '../interfaces/IDataservice';
 import {IMovie} from '../interfaces/IMovie';
 import {IOrderItem} from '../interfaces/IOrderItem';
+import {IOrder} from '../interfaces/IOrder';
 
 // import {catchError} from 'rxjs/operators';
 
@@ -32,19 +33,23 @@ export class MovieService implements IDataservice { // we make a http request he
     const searchOptions = searchValue ? {params: params.set('searchText', searchValue)} : {};
     // if searchVAl matches search term then set the key to this name or nothing will show.
     console.log('searching for' + searchValue);
-    return this.http.get<IMovie[]>(this.searchURL, searchOptions); // return the
-    /*.pipe(
-      catchError(this.handleError<IMovie[]>('search', []))*/
+    return this.http.get<IMovie[]>(this.searchURL, searchOptions);
   }
 
   genre(categoryId: number, name: string): Observable<IMovie[]> {
     return undefined;
   }
 
-  postOrder(order: IOrderItem[]) {
+
+  postOrder(orderRows: IOrderItem[], totalPrice: number, paymentMethod: string, companyId: number): Observable<HttpResponse<object>> {
+    const body: IOrder = {
+      companyId,
+      paymentMethod,
+      totalPrice,
+      orderRows
+    };
     console.log('POST');
-    const params = { params : new HttpParams().set('companyId', '19') };
-    return this.http.post(this.ordersURL, order, params).subscribe(res => console.log(res));
+    return this.http.post(this.ordersURL, body, {observe: 'response'});
   }
 
 }
