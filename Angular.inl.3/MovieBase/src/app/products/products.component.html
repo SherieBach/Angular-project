@@ -1,43 +1,16 @@
 <!---SEARCH MOVIES--->
-  <span>Search here:</span>
-  <input type="text" [(ngModel)]="inputValue" ><button  [disabled]="!inputValue" (click)="searchMovie(inputValue)">SEARCH</button>
-  <!--TODO SKRIVA IN SEARCH FRÅN PRODUCTS -->
+<label>Search here: </label>
+  <input type="text" [(ngModel)]="inputValue" ><button [disabled]="!inputValue" (click)="searchMovie(inputValue)">SEARCH</button>
 
   <div>
     <h3>SEARCHING: {{inputValue}} </h3>
   </div>
-  <div class="cardHolder" *ngIf="inputValue">
+  <div class="cardHolder" *ngIf="inputValue && inputValue.length > 2">
   <div class="card" *ngFor="let movie of search">
-      <img [src]='movie.imageUrl' style="width:100%">
+      <img [src]='movie.imageUrl' style="width:100%" alt="">
       <h3> {{movie.name}}</h3>
       <p class="price">{{ movie.price | currency: "SEK" }}</p>
       <p>{{movie.description}}</p>
     <button (click)="cartService.addToCart(movie)">BUY</button>
   </div>
   </div>
-
-
-
-<!--<table *ngIf="inputValue"> &lt;!&ndash;- If input search value then show table -&ndash;&gt;
-  <tr>
-    <th>Movie</th>
-    <th>Description</th>
-    <th>Price</th>
-  </tr>
-  <tr *ngFor="let addedMovie of search">
-    <td>
-      <img [src]='addedMovie.imageUrl'
-           [className]='screenView'  />
-    </td>
-    <td> {{ addedMovie.name }}</td>
-    <td> {{ addedMovie.description}}</td>
-    <td> {{ addedMovie.price | currency: "SEK" }}
-      <button type="button">BUY</button> &lt;!&ndash;-(click)="onClick()"-&ndash;&gt;
-    </td>
-  </tr>
-</table>-->
-
-
-
-<!--<img src='https://solarsystem.nasa.gov/system/feature_items/images/131_PIA18906_800w.jpg' [title]='addedMovie.name'>-->
-<!--*ngIf='viewImage'  [src]='addedMovie.imageUrl'-->
