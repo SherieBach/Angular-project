@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpParams, HttpResponse} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {IDataservice} from '../interfaces/IDataservice';
 import {IMovie} from '../interfaces/IMovie';
@@ -41,15 +41,21 @@ export class MovieService implements IDataservice { // we make a http request he
   }
 
 
-  postOrder(orderRows: IOrderItem[], totalPrice: number, paymentMethod: string, companyId: number): Observable<HttpResponse<object>> {
+  postOrder(orderRows: IOrderItem[], totalPrice: number, paymentMethod: string, companyId: number,
+            createdBy: string, created: string, status: number):
+    Observable<IOrder> {
     const body: IOrder = {
+      id: 0,
       companyId,
       paymentMethod,
       totalPrice,
-      orderRows
+      orderRows,
+      createdBy,
+      created,
+      status
     };
-    console.log('POST');
-    return this.http.post(this.ordersURL, body, {observe: 'response'});
+    console.log('POST' + JSON.stringify(body));
+    return this.http.post<IOrder>(this.ordersURL, body);
   }
 
 }

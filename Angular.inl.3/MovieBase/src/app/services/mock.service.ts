@@ -1,9 +1,9 @@
-
 import {Injectable} from '@angular/core';
 import {IMovie} from '../interfaces/IMovie';
 import {Observable, of} from 'rxjs';
 import {IDataservice} from '../interfaces/IDataservice';
 import {IOrderItem} from '../interfaces/IOrderItem';
+import {IOrder} from '../interfaces/IOrder';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +11,7 @@ import {IOrderItem} from '../interfaces/IOrderItem';
 export class MockService implements IDataservice {
   constructor() {
   }
+
   movies: IMovie[] = [
     {id: 1, name: 'hej', price: 234, categoryId: 8, description: 'hej', imageUrl: 'jo'},
     {id: 2, name: 'hej', price: 234, categoryId: 6, description: 'hej', imageUrl: 'jo'},
@@ -25,7 +26,8 @@ export class MockService implements IDataservice {
   ];
 
 
-  postOrder(orderRows: IOrderItem[], totalPrice: number, paymentMethod: string, companyId: number) {
+  postOrder(orderRows: IOrderItem[], totalPrice: number, paymentMethod: string, companyId: number,
+            createdBy: string, created: string, status: number): Observable<IOrder> {
     return of();
   }
 
