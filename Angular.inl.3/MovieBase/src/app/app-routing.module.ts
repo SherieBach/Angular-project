@@ -8,7 +8,7 @@ import {ProductsComponent} from './products/products.component';
 // import { NotfoundComponent } from './notfound/notfound.component';
 const appRoutes: Routes = [{path: '..', component: AppComponent},
   {path: 'Cart', component: CartComponent},
-  {path: 'Shop', component: ProductsComponent }];
+  {path: 'Products', component: ProductsComponent }];
 
 
 @NgModule({
