@@ -1,0 +1,75 @@
+.admin-board {
+  font-size: 0.8rem;
+  font-weight: normal;
+  line-height: 1.5;
+  color: whitesmoke;
+  font-family: 'Lora', serif;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.totalPrice {
+  margin-top: 20px;
+}
+
+.order-summary {
+  padding: 20px;
+  background-color: #BF1551;
+  border: 1px solid;
+}
+
+.admin-basket .admin-basket_header {
+  text-transform: uppercase;
+  padding: 20px 30px;
+  border-radius: 50px;
+  background: #f5f5f5;
+  color: #000;
+  font-weight: 900;
+
+}
+
+.admin-basket  .item {
+  padding: 25px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.admin-basket  .item img {
+  max-width: 80px;
+}
+.basket-body{
+  margin: 40px;
+}
+
+.button-row {
+  margin: 10px;
+}
+
+
+section .admin-board button {
+  margin-left: 15px;
+}
+
+button {
+  font-weight: normal;
+  border: 1px solid transparent;
+  padding: .5rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 25px;
+  background-color: #A96FF0;
+  -webkit-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;
+}
+
+.btn-template-outlined.wide {
+  padding-left: 50px;
+  padding-right: 50px;
+  background-color: #A96FF0;
+  color: #FFFF;
+  border-color: #A96FF0;
+}
