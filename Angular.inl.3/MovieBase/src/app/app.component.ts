@@ -1,6 +1,4 @@
-import { Component } from '@angular/core';
-// import {MovieService} from './services/data.service';
-// import {IMovie} from './interfaces/IMovie';
+import {Component, } from '@angular/core';
 
 @Component({
   selector: 'app-root',

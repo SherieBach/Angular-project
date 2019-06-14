@@ -4,6 +4,7 @@ import {Observable, of} from 'rxjs';
 import {IDataservice} from '../interfaces/IDataservice';
 import {IOrderItem} from '../interfaces/IOrderItem';
 import {IOrder} from '../interfaces/IOrder';
+import {IOrderSum} from '../interfaces/IOrderSum';
 
 @Injectable({
   providedIn: 'root'
@@ -39,13 +40,12 @@ export class MockService implements IDataservice {
     return of();
   }
 
-  search(search: string): Observable<IMovie[]> {
-    return of(this.movies);
-  }
-
-  genre(categoryId: number, name: string): Observable<IMovie[]> {
+  deleteOrder(id: number): Observable<IOrderSum[]> {
     return undefined;
   }
 
+  getAllOrders(): Observable<IOrderSum[]> {
+    return undefined;
+  }
 }
 

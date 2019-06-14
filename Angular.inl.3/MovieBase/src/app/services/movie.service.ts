@@ -5,6 +5,7 @@ import {IDataservice} from '../interfaces/IDataservice';
 import {IMovie} from '../interfaces/IMovie';
 import {IOrderItem} from '../interfaces/IOrderItem';
 import {IOrder} from '../interfaces/IOrder';
+import {IOrderSum} from '../interfaces/IOrderSum';
 
 // import {catchError} from 'rxjs/operators';
 
@@ -16,7 +17,6 @@ export class MovieService implements IDataservice { // we make a http request he
   }
 
   productURL = 'https://medieinstitutet-wie-products.azurewebsites.net/api/products';
-  searchURL = 'https://medieinstitutet-wie-products.azurewebsites.net/api/search';
   ordersURL = 'https://medieinstitutet-wie-products.azurewebsites.net/api/orders';
 
   getMovie(id: number): Observable<IMovie> {
@@ -24,22 +24,8 @@ export class MovieService implements IDataservice { // we make a http request he
   }
 
   getAll(): Observable<IMovie[]> {
-    return this.http.get<IMovie[]>(this.productURL);
+    return this.http.get<IMovie[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/products');
   }
-
-  search(search: string): Observable<IMovie[]> {
-    const searchValue = search.trim();
-    const params = new HttpParams();
-    const searchOptions = searchValue ? {params: params.set('searchText', searchValue)} : {};
-    // if searchVAl matches search term then set the key to this name or nothing will show.
-    console.log('searching for' + searchValue);
-    return this.http.get<IMovie[]>(this.searchURL, searchOptions);
-  }
-
-  genre(categoryId: number, name: string): Observable<IMovie[]> {
-    return undefined;
-  }
-
 
   postOrder(orderRows: IOrderItem[], totalPrice: number, paymentMethod: string, companyId: number,
             createdBy: string, created: string, status: number):
@@ -56,6 +42,15 @@ export class MovieService implements IDataservice { // we make a http request he
     };
     console.log('POST' + JSON.stringify(body));
     return this.http.post<IOrder>(this.ordersURL, body);
+  }
+
+  getAllOrders(): Observable<IOrderSum[]> {
+    return this.http.get<IOrderSum[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/orders?companyId=19');
+  }
+
+  deleteOrder(id: number): Observable<IOrderSum[]> {
+    console.log('deleting order ' + id);
+    return this.http.delete<IOrderSum[]>('https://medieinstitutet-wie-products.azurewebsites.net/api/orders/' + id);
   }
 
 }

@@ -1,35 +1,79 @@
-.cardHolder {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.card {
-  margin: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 250px;
-  color:gray;
-background-color: transparent;
-  padding: 5px;
-}
-
-.searchButton {
-  color: white;
-}
-h3, h2, p {
+span, p {
   font-family: 'Lora', serif;
-  color: ghostwhite;
-  position: relative;
-  text-space: 1;
-
 }
-span {
+
+h2{
   font-family: 'Lora', serif;
-  color: ghostwhite;
-  position: relative;
+  color: whitesmoke;
+}
+
+h6 {
+  font-family: 'Lora', serif;
   text-transform: uppercase;
-  text-space: 1;
-  margin:2%;
+}
 
+.card-img-top {
+  width: 265px;
+  height: auto;
+}
+
+.product {
+  background-color: #303342;
+}
+.product-album {
+  padding: 50px;
+  background-color: #303342;
+  position: relative;
+}
+.text-holder{
+  width: 50px;
+}
+
+.jumbotron {
+  background-size: cover;
+  background: url('~img/noom-peerapong-30948-unsplash.jpg') no-repeat center center;
+  height: 40vh;
+}
+.card-body {
+  width: 260px;
+  min-height: 200px;
+  font-size: 0.1rem;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.card-items {
+  max-width: 265px;
+  height: auto;
+  background-color: #7B82A8;
+  color: whitesmoke;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+
+}
+
+.card-items:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  transform: scale(1.1);
+}
+.card-text {
+  font-size: 7em;
+}
+button {
+  margin: 10px;
+  background-color: #A9B4E8;
+  border: solid black 1px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+button:hover {
+  margin: 10px;
+  border: solid black 1px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  background-color: #9055A2;
+}
+.price {
+  margin: 10px;
+  font-size: medium;
 }
