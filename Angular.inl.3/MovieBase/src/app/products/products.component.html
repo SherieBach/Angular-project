@@ -1,16 +1,28 @@
 <!---SEARCH MOVIES--->
-<label>Search here: </label>
-  <input type="text" [(ngModel)]="inputValue" ><button [disabled]="!inputValue" (click)="searchMovie(inputValue)">SEARCH</button>
-
+<div class="product">
+  <div class="jumbotron text-center">
+  </div>
   <div>
-    <h3>SEARCHING: {{inputValue}} </h3>
   </div>
-  <div class="cardHolder" *ngIf="inputValue && inputValue.length > 2">
-  <div class="card" *ngFor="let movie of search">
-      <img [src]='movie.imageUrl' style="width:100%" alt="">
-      <h3> {{movie.name}}</h3>
-      <p class="price">{{ movie.price | currency: "SEK" }}</p>
-      <p>{{movie.description}}</p>
-    <button (click)="cartService.addToCart(movie)">BUY</button>
+  <div class="product-album">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4" *ngFor="let movie of allMovies">
+          <div class="card-items mb-5">
+            <img [src]='movie.imageUrl' class="card-img-top" role="img">
+            <div class="card-body">
+              <h6> {{movie.name}}</h6>
+              <span class="card-text">{{ movie.description }}</span>
+              <span class="price"> Price: {{ movie.price | currency: " SEK " }}</span>
+              <div class="d-flex justify-content-between align-items-center">
+                  <button type="button" class="btn btn-sm submitButton"
+                          (click)="cartService.addToCart(movie)">BUY
+                  </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  </div>
+</div>
