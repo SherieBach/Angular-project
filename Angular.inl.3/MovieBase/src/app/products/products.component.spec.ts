@@ -4,7 +4,6 @@ import {MovieService} from '../services/movie.service';
 import {MockService} from '../services/mock.service';
 import {FormsModule} from '@angular/forms';
 
-
 describe('ProductsComponent', () => {
   let component: ProductsComponent;
   let fixture: ComponentFixture<ProductsComponent>;
@@ -14,7 +13,15 @@ describe('ProductsComponent', () => {
       declarations: [ProductsComponent],
       imports: [FormsModule]
     })
-      .overrideComponent(ProductsComponent, {set: {providers: [{provide: MovieService, useClass: MockService}]}})
+      .overrideComponent(ProductsComponent, {
+        set:
+          {
+            providers: [{
+              provide: MovieService,
+              useClass: MockService
+            }]
+          }
+      })
       .compileComponents();
   }));
 
@@ -27,16 +34,8 @@ describe('ProductsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should show all movies from the search function parameter', () => {
-    component.searchMovie('poop'); // to be poop value .
-    expect(component.search.length).toBe(4);
-  });
-
-
-  /*it('should react to click function', () => {
-    expect(component.tag)
-
-
-  });
-*/
+ /* it('should show all movies from the search function parameter', () => {
+    component.searchMovie();
+    expect(component.search.length).toBe(4); // from mockservice
+  });*/
 });

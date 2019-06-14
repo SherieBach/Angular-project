@@ -1,0 +1,104 @@
+<div class="container hero-cart">
+  <div class="row d-flex">
+    <div class="col-lg-9 order-2 order-lg-1">
+      <h3>Checkout</h3>
+      <p class="lead">You currently have {{totalAmount()}} item(s) in your basket</p>
+    </div>
+    <div class="col-lg-3 text-right order-1 order-lg-2">
+      <ul class="breadcrumb justify-content-lg-end">
+        <li class="breadcrumb-item"><a routerLink="/Products" routerLinkActive="active">Continue Shopping</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- Shopping Cart Section-->
+<section class="shopping-cart">
+  <div class="container">
+    <div class="basket">
+      <div class="basket-holder">
+        <div class="basket-header">
+          <div class="row">
+            <div class="col-5">Product</div>
+            <div class="col-2">Price</div>
+            <div class="col-2">Quantity</div>
+            <div class="col-1 text-center">Remove</div>
+          </div>
+        </div>
+        <!-- Product-->
+        <div class="basket-body" *ngFor="let movie of cartService.getCartItems()">
+          <div class="item">
+            <div class="row d-flex align-items-center">
+              <div class="col-5">
+                <div class="d-flex align-items-center"><img [src]='movie.imageUrl' alt="..." class="img-fluid">
+                  <div class="title"><a href="#">
+                    <h5>{{movie.name}}</h5></a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2"><span>{{movie.price | currency: "SEK "}}</span></div>
+              <div class="col-2">
+                <div class="d-flex align-items-center">
+                  <div class="quantity d-flex align-items-center">
+                    <div class="dec-btn" (click)="cartService.deleteFromCart(movie.id)">-</div>
+                    <input type="text" value="1" class="quantity-no">
+                    <div class="inc-btn" (click)="cartService.addToCart(movie)">+</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-1 text-center"><i class="delete fa fa-trash"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container buttons">
+    <div class="CTAs justify-content-md-end flex-column flex-md-row">
+      <div class="totalPrice"><h4>Total Price: {{ totalPrice() | currency: "SEK " }}</h4></div>
+      <button><a routerLink="/Products" routerLinkActive="active" href="#" class="btn btn-template-outlined wide">Continue
+        Shopping</a></button>
+      <button><a href="#" class="btn btn-template wide" (click)="cartService.clearCart()">Delete Cart</a></button>
+    </div>
+  </div>
+</section>
+
+<section class="checkout-form">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="tab-content">
+          <div id="address" class="active tab-block">
+            <form action="#" [formGroup]="profileForm" (ngSubmit)="sendOrder()">
+              <div class="row">
+                <div class="form-group col-md-6">
+                  <label for="firstname" class="form-label">First Name</label>
+                  <input id="firstname" type="text" name="first-name" placeholder="Enter you first name"
+                         class="form-control">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="lastname" class="form-label">Last Name</label>
+                  <input id="lastname" type="text" name="last-name" placeholder="Enter your last name"
+                         class="form-control">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="email" class="form-label">Email Address</label>
+                  <input id="email" name="email" type="text" formControlName="email"
+                         placeholder="enter your email address"
+                         class="form-control">
+                </div>
+              </div>
+              <!-- /Shipping Address-->
+              <div class="CTAs d-flex justify-content-space-between flex-column flex-lg-row">
+                <button [disabled]="!profileForm.valid"><a routerLink="/Products" routerLinkActive="active"
+                                                           class="btn btn-template-outlined wide prev"><i
+                  class="fa fa-angle-left"></i>Back to shop</a></button>
+                <button type="submit" class="btn btn-template wide next" [disabled]="!profileForm.valid">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

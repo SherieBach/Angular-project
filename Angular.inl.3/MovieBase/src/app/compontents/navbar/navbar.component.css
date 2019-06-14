@@ -1,0 +1,35 @@
+header {
+  position: relative;
+}
+.header-brand {
+  margin: 30px 20px;
+  position: relative;
+}
+h1 {
+  color: #A9B4E8;
+  align-self: center;
+  font-family: 'Yellowtail', cursive;
+  font-size: 4.5em;
+}
+.nav-header {
+  display: flex;
+  justify-content: space-around;
+}
+
+.buttonEnter, .fa-opencart {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  color: #A9B4E8;
+  font-size:  1.8em;
+
+}
+
+.buttonEnterAdmin {
+  position: absolute;
+  right: 100px;
+  top: 25px;
+  font-family: 'Yellowtail', cursive;
+  font-size:  2em;
+  color: #A9B4E8;
+}

@@ -1,19 +1,22 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-//import {ProductsComponent} from './products/products.component';
-//import {MovieDetailsComponent} from './movie-details/movie-details.component';
-//import {AppComponent} from './app.component';
+import {RouterModule, Routes} from '@angular/router';
+import {AppComponent} from './app.component';
+import {CartComponent} from './cart/cart.component';
+import {ProductsComponent} from './products/products.component';
+import {AdminComponent} from './admin/admin.component';
 
-const routes: Routes = [/*{
-  path: 'main', component: AppComponent,
-  children: [{
-    path: 'movies', component: ProductsComponent
-  }]},
-  {path: 'movie/:id', component: MovieDetailsComponent}*/];
+
+// import { NotfoundComponent } from './notfound/notfound.component';
+const appRoutes: Routes = [{path: '..', component: AppComponent},
+  {path: 'Cart', component: CartComponent},
+  {path: 'Admin', component: AdminComponent},
+  {path: 'Products', component: ProductsComponent }];
+
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(appRoutes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}
+// export const routingCompenents = [AppComponent];
+

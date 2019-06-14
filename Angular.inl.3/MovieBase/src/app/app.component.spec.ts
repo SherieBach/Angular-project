@@ -3,6 +3,9 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsComponent } from './products/products.component';
 import {FormsModule} from '@angular/forms';
+import {CartComponent} from './cart/cart.component';
+import { RouterTestingModule } from '@angular/router/testing';
+
 
 
 describe('AppComponent', () => {
@@ -10,11 +13,13 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         [HttpClientModule],
-        [FormsModule]
+        [FormsModule],
+        [RouterTestingModule]
       ],
       declarations: [
         AppComponent,
         ProductsComponent,
+        CartComponent
       ],
     }).compileComponents();
   }));
@@ -25,9 +30,9 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'MovieBase'`, () => {
+  it(`should have as title 'AirFlick'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('MovieBase');
+    expect(app.title).toEqual('AirFlick');
   });
 });
