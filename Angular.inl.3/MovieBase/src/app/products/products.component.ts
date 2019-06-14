@@ -9,19 +9,16 @@ import {CartService} from '../services/cart.service';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
-  inputValue: string;
-  movie: IMovie;
   search: IMovie[];
+  allMovies: IMovie[];
 
   constructor(private service: MovieService, private cartService: CartService) {
   }
 
-  ngOnInit(): void {
-  }
-
-  searchMovie() {
-    this.service.search(this.inputValue).subscribe((data) => {
-      this.search = data;
+  ngOnInit() {
+    this.service.getAll().subscribe(movies => {
+      this.allMovies = movies;
+      console.log(movies);
     });
   }
 }
